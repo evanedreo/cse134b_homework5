@@ -4,19 +4,11 @@
     <meta charset="utf-8">
     <title>Evan's Portfolio</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="alternate" href="experiments.html" title="Experiments" type="text/html">
-    <!-- custom element -->
-    <style>
-      pill-nav { display:block; border:1px solid #ccc; }
-    </style>
-    <!-- placeholder script -->
-    <script src="https://example.com/analytics.js" defer></script>
-    <!-- console-only custom element -->
-    <script>
-      customElements.define("hello-world", class extends HTMLElement {
-        connectedCallback(){ console.log("Hello world!"); }
-      });
-    </script>
+    <!-- Custom font and global stylesheet -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
   </head>
 
   <body>
@@ -24,12 +16,20 @@
 
     <header>
       <nav aria-label="Primary">
-        <pill-nav>
-          <a href="index.html">Home</a>
+        <details class="nav-menu">
+          <summary aria-label="Toggle navigation">Menu</summary>
+          <pill-nav>
+            <a href="index.html" aria-current="page">Home</a>
+            <a href="experiences.html">Experiences</a>
+            <a href="projects.html">Projects</a>
+            <a href="contact.html">Contact</a>
+          </pill-nav>
+        </details>
+        <pill-nav class="nav-inline">
+          <a href="index.html" aria-current="page">Home</a>
           <a href="experiences.html">Experiences</a>
           <a href="projects.html">Projects</a>
           <a href="contact.html">Contact</a>
-          <a href="experiments.html">Experiments</a>
         </pill-nav>
       </nav>
     </header>
@@ -39,82 +39,36 @@
       <section id="about" aria-labelledby="site-name">
         <div>
           <h1 id="site-name">Evan Edreo Honggo Widjojo</h1>
-          <img src="profile.png" alt="Evan Edreo Honggo Widjojo professional headshot" width="200" height="200">
-          <svg aria-hidden="true" focusable="false" viewBox="0 0 100 4" width="100" height="4">
-            <rect width="100" height="4" fill="#ccc"></rect>
-          </svg>
+          
           <p>San Diego, CA | <a href="tel:+16502012911">+1 650 201 2911</a> | <a href="mailto:evanedreo@gmail.com">evanedreo@gmail.com</a></p>
           <p>
-            <strong>Computer Science Student at UC San Diego</strong>
             <br>
             BS in Computer Science, Regents Scholar | Expected June 2026
             <br>
-            <img src="ucsd-geisel.png" alt="UC San Diego Geisel Library at sunset" width="300" height="200">
+            <picture>
+              <img src="assets/images/ucsd-geisel-480.png" srcset="assets/images/ucsd-geisel-280.png 280w, assets/images/ucsd-geisel-360.png 360w, assets/images/ucsd-geisel-480.png 480w" sizes="(min-width: 72rem) 480px, (min-width: 48rem) 360px, 280px" alt="UC San Diego Geisel Library at sunset" width="480" height="320" class="media-cover" loading="lazy" decoding="async">
+            </picture>
           </p>
           <p>
-            <a href="resume.pdf">Resume</a>
-            <br>
-            <em>Welcome</em> to my <b>portfolio</b>. I'm a passionate software engineer with experience in full-stack development, AI/ML systems, and building scalable solutions.
+            <br>I'm a passionate software engineer with experience in full-stack development, AI/ML systems, and building scalable solutions.
           </p>
           <div>
             <!-- icons can be real files later -->
-            <a href="https://linkedin.com/in/evanedreo/"><img src="linkedin.png" alt="LinkedIn logo"></a>
-            <a href="https://x.com/"><img src="x.png" alt="X logo"></a>
-            <a href="https://github.com/evanedreo"><img src="github.png" alt="GitHub logo"></a>
+            <a href="https://linkedin.com/in/evanedreo/"><img src="assets/images/linkedin.png" alt="LinkedIn" class="social-icon" loading="lazy" decoding="async"></a>
+            <a href="assets/resume.pdf">Resume</a>
+            <a href="https://github.com/evanedreo"><img src="assets/images/github.png" alt="GitHub" class="social-icon" loading="lazy" decoding="async"></a>
           </div>
-          <hello-world></hello-world>
+          
         </div>
-      </section>
-
-      <!-- Overview -->
-      <section id="overview">
-        <h2>About Me</h2>
-        <p>I'm a passionate software engineer with experience in full-stack development, AI/ML systems, and building scalable solutions. Currently pursuing my BS in Computer Science at UC San Diego as a Regents Scholar.</p>
-        
-        <h2>Quick Overview</h2>
-        <ul>
-          <li><strong>Current Role:</strong> Software Engineer Intern at Sansay</li>
-          <li><strong>Education:</strong> BS Computer Science, UC San Diego (Expected June 2026)</li>
-          <li><strong>Experience:</strong> 3+ internships at tech companies including YC-backed startups</li>
-          <li><strong>Leadership:</strong> CTO & Co-Founder of Araca, Founder of Code the Change DVC</li>
-        </ul>
-
-        <h2>Key Achievements</h2>
-        <ul>
-          <li>Reduced data analysis time by 95% through MCP system development</li>
-          <li>Achieved 90% higher query accuracy with fusion search system</li>
-          <li>Cut unnecessary API calls by 80% with real-time polling system</li>
-          <li>Increased team collaboration by 60% through organization management features</li>
-        </ul>
-
-        <p>
-          <a href="experiences.html">View detailed work experiences →</a><br>
-          <a href="projects.html">Explore my projects →</a><br>
-          <a href="contact.html">Get in touch →</a>
-        </p>
-
-        <!-- tiny iframe card-->
-        <iframe title="mini card" width="280" height="90"
-                srcdoc="<p>Small embedded blurb about me.</p>"></iframe>
-        <p>
-          Portfolio completion:
-          <progress value="70" max="100">70%</progress>
-        </p>
       </section>
     </main>
 
     <footer>
       <nav aria-label="Footer">
         <ul>
-          <li><a href="index.html">Home</a></li>
-          <li><a href="experiences.html">Experiences</a></li>
-          <li><a href="projects.html">Projects</a></li>
-          <li><a href="contact.html">Contact</a></li>
-          <li><a href="experiments.html">Experiments</a></li>
         </ul>
       </nav>
       <small>&copy; <span>2025</span> Evan Edreo Honggo Widjojo</small>
     </footer>
   </body>
 </html>
-<!-- Force cache bust Mon Oct 20 01:21:16 PDT 2025 -->

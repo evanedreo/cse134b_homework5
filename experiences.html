@@ -4,10 +4,12 @@
     <meta charset="utf-8">
     <title>Experiences - Evan's Portfolio</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Custom font and global stylesheet -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
     <link rel="alternate" href="index.html" title="Home" type="text/html">
-    <style>
-      pill-nav { display:block; border:1px solid #ccc; }
-    </style>
   </head>
 
   <body>
@@ -15,12 +17,20 @@
 
     <header>
       <nav aria-label="Primary">
-        <pill-nav>
+        <details class="nav-menu">
+          <summary aria-label="Toggle navigation">Menu</summary>
+          <pill-nav>
+            <a href="index.html">Home</a>
+            <a href="experiences.html" aria-current="page">Experiences</a>
+            <a href="projects.html">Projects</a>
+            <a href="contact.html">Contact</a>
+          </pill-nav>
+        </details>
+        <pill-nav class="nav-inline">
           <a href="index.html">Home</a>
-          <a href="experiences.html">Experiences</a>
+          <a href="experiences.html" aria-current="page">Experiences</a>
           <a href="projects.html">Projects</a>
           <a href="contact.html">Contact</a>
-          <a href="experiments.html">Experiments</a>
         </pill-nav>
       </nav>
     </header>
@@ -28,58 +38,46 @@
     <main>
       <!-- Experiences -->
       <section id="experiences" aria-labelledby="work-exp">
-        <h1 id="work-exp">Work Experiences</h1>
+        <h2 id="work-exp">Work Experiences</h2>
         <article>
-          <h2>Software Engineer Intern - Sansay</h2>
-          <img src="sansay.png" alt="Sansay company logo" width="100" height="50">
+          <h2><a href="https://www.sansay.com/">Software Engineer Intern - Sansay</a></h2>
+          <img src="assets/images/sansay.png" alt="Sansay company logo" width="100" height="50" class="logo" loading="lazy" decoding="async">
           <p><em>San Diego, CA | June 2025 – Present</em></p>
           <ul>
-            <li>Built MCP system with LangChain and Python for the backend that transformed data analysis from a manual, long process into instant, natural-language queries; enabled agents to dynamically call MongoDB/MariaDB functions within a single request, reducing analysis time by 95% and unlocking real-time insights</li>
-            <li>Engineered fusion search system combining keyword and vector search across MySQL and MongoDB, achieving 90% higher query accuracy and delivering more relevant results to users</li>
-            <li>Architected scalable analysis system that solved LLM context limitations to analyze 10,000+ customer conversations simultaneously, implementing parallel processing, dynamic filtering, and optimized data serialization. Reduced time by 99%</li>
-            <li>Optimized system performance by 94% through Node.js and JavaScript worker thread implementation and database optimization, reducing query response time from 301ms to 18.7ms for real-time customer support workflows</li>
+            <li>Built an AI-driven data analysis system to turn natural language into instant database insights.</li>
           </ul>
         </article>
         <article>
-          <h2>Founding Engineer Intern - Solight AI</h2>
-          <img src="solight.png" alt="Solight AI company logo" width="100" height="50">
+          <h2><a href="https://www.solight.ai/">Founding Engineer Intern - Solight AI</a></h2>
+          <img src="assets/images/solight.png" alt="Solight AI company logo" width="100" height="50" class="logo" loading="lazy" decoding="async">
           <p><em>San Francisco, CA | April 2025 – June 2025</em></p>
           <ul>
-            <li>Implemented real-time polling system with Redis, FastAPI, and React that prevented redundant requests during in-progress LLM generations, cutting unnecessary API calls by 80%</li>
-            <li>Built organization management features (creation, invitations, role-based collaboration) using Python and JavaScript that transformed the product from single-user to team-ready, driving a 60% increase in collaboration and adoption</li>
-            <li>Developed LLM output comparison framework with Python backend and JavaScript frontend to automatically test and weight generated results on key quality metrics, boosting QA accuracy by 30%</li>
-            <li>Designed agent task manager using FastAPI and Python that decomposed monolithic QA workflows into specialized agents (auth, analysis, execution), improving throughput and reducing processing time by 40%</li>
+            <li>Reduced redundant API calls with a real‑time polling system, improving efficiency and UX.</li>
           </ul>
         </article>
         <article>
-          <h2>Software Engineering Intern - Typedream (YC W20)</h2>
-          <img src="typedream.png" alt="Typedream company logo" width="100" height="50">
+          <h2><a href="https://typedream.com/">Software Engineering Intern - Typedream (YC W20)</a></h2>
+          <img src="assets/images/typedream.png" alt="Typedream company logo" width="100" height="50" class="logo" loading="lazy" decoding="async">
           <p><em>San Francisco, CA | Jun 2023 – Sep 2023</em></p>
           <ul>
-            <li>Engineered automated data parsing and conversion system for Linktree imports using Next.js, React, TypeScript, and Tailwind CSS for the frontend and backend, transforming competitor link structures into customizable drag-and-drop card layouts through close CTO collaboration, increasing new user signups by 25%</li>
-            <li>Standardized UI components and migrated styling from Bulma CSS to Tailwind CSS, ensuring visual consistency</li>
-            <li>Designed and shipped dumpl.ink, a new product, from Figma to production with Next.js, TypeScript, and Tailwind CSS.</li>
+            <li>Shipped a data import system and new product UI to improve onboarding and conversions.</li>
           </ul>
         </article>
 
         <h2>Leadership Experiences</h2>
         <ol>
           <li>
-            <h3>CTO & Co-Founder - Araca Website</h3>
+            <h3><img src="assets/images/araca.png" alt="Araca logo" class="logo" loading="lazy" decoding="async"> <a href="https://araca.framer.website/">CTO & Co-Founder - Araca Website</a></h3>
             <p><em>Nov 2024 – June 2025</em></p>
             <ul>
-              <li>Led 5 full-stack developers of a SaaS platform funded by Blackstone Launchpad using Next.js, React, and Typescript.</li>
-              <li>Built a secure email automation system integrating OpenAI, Google API, and OAuth 2.0, reducing wasted time by 90%.</li>
-              <li>Defined and executed the product roadmap, creating system design diagrams and technical overviews to streamline task.</li>
+              <li>Led a 5-person team to build and ship a SaaS MVP.</li>
             </ul>
           </li>
           <li>
-            <h3>Founder and President - Code the Change DVC Website</h3>
+            <h3><img src="assets/images/codethechange.png" alt="Code the Change logo" class="logo" loading="lazy" decoding="async"> <a href="https://codethechange.vercel.app/">Founder and President - Code the Change DVC Website</a></h3>
             <p><em>Jan 2023 - May 2024</em></p>
             <ul>
-              <li>Managed a team of 40 officers to develop 5 websites using HTML/CSS and JavaScript for underresourced non-profit organizations, increasing donations by 30% for a few organizations and boosting their online presence by 100%.</li>
-              <li>Orchestrated weekly general meetings onsite and virtual team project meetings through Slack, achieving 100% membership growth each semester, totaling over 200 members in total and maintaining strong communication skills.</li>
-              <li>Organized workshops on full stack dev and Git, inviting industry professionals to speak about the computer science field.</li>
+              <li>Founded and grew a student org delivering websites for nonprofits.</li>
             </ul>
           </li>
         </ol>
@@ -89,11 +87,6 @@
     <footer>
       <nav aria-label="Footer">
         <ul>
-          <li><a href="index.html">Home</a></li>
-          <li><a href="experiences.html">Experiences</a></li>
-          <li><a href="projects.html">Projects</a></li>
-          <li><a href="contact.html">Contact</a></li>
-          <li><a href="experiments.html">Experiments</a></li>
         </ul>
       </nav>
       <small>&copy; <span>2025</span> Evan Edreo Honggo Widjojo</small>

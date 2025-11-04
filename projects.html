@@ -4,10 +4,12 @@
     <meta charset="utf-8">
     <title>Projects - Evan's Portfolio</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Custom font and global stylesheet -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
     <link rel="alternate" href="index.html" title="Home" type="text/html">
-    <style>
-      pill-nav { display:block; border:1px solid #ccc; }
-    </style>
   </head>
 
   <body>
@@ -15,12 +17,20 @@
 
     <header>
       <nav aria-label="Primary">
-        <pill-nav>
+        <details class="nav-menu">
+          <summary aria-label="Toggle navigation">Menu</summary>
+          <pill-nav>
+            <a href="index.html">Home</a>
+            <a href="experiences.html">Experiences</a>
+            <a href="projects.html" aria-current="page">Projects</a>
+            <a href="contact.html">Contact</a>
+          </pill-nav>
+        </details>
+        <pill-nav class="nav-inline">
           <a href="index.html">Home</a>
           <a href="experiences.html">Experiences</a>
-          <a href="projects.html">Projects</a>
+          <a href="projects.html" aria-current="page">Projects</a>
           <a href="contact.html">Contact</a>
-          <a href="experiments.html">Experiments</a>
         </pill-nav>
       </nav>
     </header>
@@ -28,15 +38,14 @@
     <main>
       <!-- Projects -->
       <section id="projects" aria-labelledby="proj-title">
-        <h1 id="proj-title">Projects</h1>
+        <h2 id="proj-title">Projects</h2>
         <ul>
           <li>
             <article>
               <h2>FoodFlip - Restaurant Recommendation App</h2>
               <p>FoodFlip is a restaurant recommendation app where users can swipe through restaurant cards and save to their own collections! Built with JavaScript and modern web technologies.</p>
               <p><strong>Tech Stack:</strong> JavaScript</p>
-              <p><a href="https://github.com/cse110-sp25-group25/cse110-sp25-group25">View on GitHub →</a></p>
-              <img src="foodflip.png" alt="FoodFlip app logo showing crossed fork and spoon">
+              <p><a href="https://cse110-sp25-group25.github.io/cse110-sp25-group25/">Visit project →</a></p>
             </article>
           </li>
           <li>
@@ -44,7 +53,7 @@
               <h2>Podcaist - AI Generated Podcast</h2>
               <p>An AI-powered application that automatically generates podcast content using advanced language models and audio synthesis.</p>
               <p><strong>Tech Stack:</strong> TypeScript</p>
-              <p><a href="https://github.com/evanedreo/podcaist">View on GitHub →</a></p>
+              <p><a href="https://podcaist.vercel.app/">Visit project →</a></p>
             </article>
           </li>
           <li>
@@ -65,14 +74,6 @@
           </li>
           <li>
             <article>
-              <h2>Code the Change DVC Website</h2>
-              <p>A responsive website for Code the Change DVC developed with Next.js 13 and Tailwind CSS. Built to support a non-profit organization helping underresourced communities.</p>
-              <p><strong>Tech Stack:</strong> TypeScript, Next.js, Tailwind CSS</p>
-              <p><a href="https://github.com/evanedreo/codethechange">View on GitHub →</a></p>
-            </article>
-          </li>
-          <li>
-            <article>
               <h2>Slide Generator - AI-Powered Presentations</h2>
               <p>An AI-powered application that generates interactive educational slide presentations using Next.js, TypeScript, AWS S3, and OpenAI. Automates the creation of engaging learning materials.</p>
               <p><strong>Tech Stack:</strong> TypeScript, Next.js, AWS S3, OpenAI</p>
@@ -86,11 +87,6 @@
     <footer>
       <nav aria-label="Footer">
         <ul>
-          <li><a href="index.html">Home</a></li>
-          <li><a href="experiences.html">Experiences</a></li>
-          <li><a href="projects.html">Projects</a></li>
-          <li><a href="contact.html">Contact</a></li>
-          <li><a href="experiments.html">Experiments</a></li>
         </ul>
       </nav>
       <small>&copy; <span>2025</span> Evan Edreo Honggo Widjojo</small>

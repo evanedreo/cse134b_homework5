@@ -4,10 +4,12 @@
     <meta charset="utf-8">
     <title>Contact - Evan's Portfolio</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Custom font and global stylesheet -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
     <link rel="alternate" href="index.html" title="Home" type="text/html">
-    <style>
-      pill-nav { display:block; border:1px solid #ccc; }
-    </style>
   </head>
 
   <body>
@@ -15,12 +17,20 @@
 
     <header>
       <nav aria-label="Primary">
-        <pill-nav>
+        <details class="nav-menu">
+          <summary aria-label="Toggle navigation">Menu</summary>
+          <pill-nav>
+            <a href="index.html">Home</a>
+            <a href="experiences.html">Experiences</a>
+            <a href="projects.html">Projects</a>
+            <a href="contact.html" aria-current="page">Contact</a>
+          </pill-nav>
+        </details>
+        <pill-nav class="nav-inline">
           <a href="index.html">Home</a>
           <a href="experiences.html">Experiences</a>
           <a href="projects.html">Projects</a>
-          <a href="contact.html">Contact</a>
-          <a href="experiments.html">Experiments</a>
+          <a href="contact.html" aria-current="page">Contact</a>
         </pill-nav>
       </nav>
     </header>
@@ -28,13 +38,11 @@
     <main>
       <!-- Contact -->
       <section id="contact" aria-labelledby="contact-title">
-        <h1 id="contact-title">Contact</h1>
+        <h2 id="contact-title">Contact</h2>
         <p>Feel free to reach out to discuss opportunities, projects, or collaborations!</p>
         <p>
           Email: <a href="mailto:evanedreo@gmail.com">evanedreo@gmail.com</a><br>
           Phone: <a href="tel:+16502012911">+1 650 201 2911</a><br>
-          LinkedIn: <a href="https://linkedin.com/in/evanedreo/">linkedin.com/in/evanedreo/</a><br>
-          GitHub: <a href="https://github.com/evanedreo">github.com/evanedreo</a>
         </p>
 
         <form>
@@ -64,11 +72,6 @@
     <footer>
       <nav aria-label="Footer">
         <ul>
-          <li><a href="index.html">Home</a></li>
-          <li><a href="experiences.html">Experiences</a></li>
-          <li><a href="projects.html">Projects</a></li>
-          <li><a href="contact.html">Contact</a></li>
-          <li><a href="experiments.html">Experiments</a></li>
         </ul>
       </nav>
       <small>&copy; <span>2025</span> Evan Edreo Honggo Widjojo</small>
