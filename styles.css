@@ -17,6 +17,13 @@
   --space-4: 2rem;
   --shadow-soft: 0 1px 2px rgb(0 0 0 / 0.05), 0 2px 8px rgb(0 0 0 / 0.06);
 
+  /* Project card tokens */
+  --project-card-bg: var(--surface-2);
+  --project-card-border: color-mix(in oklab, var(--text), transparent 88%);
+  --project-card-radius: var(--radius);
+  --project-card-padding: var(--space-3);
+  --project-card-gap: var(--space-3);
+
   /* Font stacks */
   --font-sans: "Source Sans 3", system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
   --font-serif: "Georgia", "Times New Roman", serif;
@@ -486,27 +493,24 @@ footer nav ul {
 }
 footer nav a { text-decoration: none; color: var(--text); }
 
-/* Scoped styles for Projects page (match Experiences layout) */
+/* Scoped styles for Projects page */
 @scope (#projects) {
-  ul { list-style: none; padding: 0; margin: 0; }
-  li { margin: 0; }
-  article {
-    border-block-end: 1px solid color-mix(in oklab, var(--text), transparent 85%);
-    padding-block: var(--space-3);
-    display: grid;
-    grid-template-columns: auto 1fr;
-    column-gap: var(--space-2);
-    align-items: center;
-    grid-auto-rows: min-content;
-    background: transparent;
-    border: none;
-    box-shadow: none;
-    padding-inline: 0;
+  #projects {
+    width: min(100% - 2rem, 74rem);
+    margin-inline: auto;
+    padding-block: var(--space-4);
   }
-  /* Treat first image as a compact logo beside title */
-  article img { inline-size: 40px; block-size: 40px; object-fit: contain; grid-column: 1; border-radius: 6px; }
-  article h2 { grid-column: 2; margin: 0; font-size: 1rem; }
-  article p { grid-column: 2; margin: 0.25rem 0 0 0; font-size: 0.95rem; color: var(--muted); }
+
+  .project-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(18rem, 1fr));
+    gap: var(--space-3);
+  }
+
+  project-card {
+    /* Ensure cards participate in the grid cleanly */
+    min-inline-size: 0;
+  }
 }
 
 /* Scoped styles for Experiences page */

@@ -12,6 +12,7 @@
     <link rel="alternate" href="index.html" title="Home" type="text/html">
     <link rel="icon" href="assets/images/profile.png" type="image/png">
     <script src="theme-toggle.js" defer></script>
+    <script src="project-card.js" defer></script>
   </head>
 
   <body>
@@ -49,48 +50,59 @@
       <!-- Projects -->
       <section id="projects" aria-labelledby="proj-title">
         <h2 id="proj-title">Projects</h2>
-        <ul>
-          <li>
-            <article>
-              <h2>FoodFlip - Restaurant Recommendation App</h2>
-              <p>FoodFlip is a restaurant recommendation app where users can swipe through restaurant cards and save to their own collections! Built with JavaScript and modern web technologies.</p>
-              <p><strong>Tech Stack:</strong> JavaScript</p>
-              <p><a href="https://cse110-sp25-group25.github.io/cse110-sp25-group25/">Visit project →</a></p>
-            </article>
-          </li>
-          <li>
-            <article>
-              <h2>Podcaist - AI Generated Podcast</h2>
-              <p>An AI-powered application that automatically generates podcast content using advanced language models and audio synthesis.</p>
-              <p><strong>Tech Stack:</strong> TypeScript</p>
-              <p><a href="https://podcaist.vercel.app/">Visit project →</a></p>
-            </article>
-          </li>
-          <li>
-            <article>
-              <h2>QA Testing System - AI-Driven Testing Agent</h2>
-              <p>Sick of doing manual testing? This is an AI-driven QA agent that will help you to test your buggy website! Automates the testing process using intelligent agents.</p>
-              <p><strong>Tech Stack:</strong> Python</p>
-              <p><a href="https://github.com/evanedreo/qa_testing_system">View on GitHub →</a></p>
-            </article>
-          </li>
-          <li>
-            <article>
-              <h2>Etsy Classifier - Policy Enforcement ML Model</h2>
-              <p>This project explores the use of language models to automate policy enforcement for e-commerce product listings. Specifically, it focuses on identifying safety violations related to drawstrings on children's clothing.</p>
-              <p><strong>Tech Stack:</strong> Python, Jupyter Notebook</p>
-              <p><a href="https://github.com/evanedreo/etsy-classifier">View on GitHub →</a></p>
-            </article>
-          </li>
-          <li>
-            <article>
-              <h2>Slide Generator - AI-Powered Presentations</h2>
-              <p>An AI-powered application that generates interactive educational slide presentations using Next.js, TypeScript, AWS S3, and OpenAI. Automates the creation of engaging learning materials.</p>
-              <p><strong>Tech Stack:</strong> TypeScript, Next.js, AWS S3, OpenAI</p>
-              <p><a href="https://github.com/evanedreo/slide-generator">View on GitHub →</a></p>
-            </article>
-          </li>
-        </ul>
+        <div class="project-grid" aria-live="polite">
+          <project-card
+            title="FoodFlip - Restaurant Recommendation App"
+            image-src="assets/images/foodflip.png"
+            image-alt="FoodFlip app interface showing restaurant cards to swipe"
+            description="FoodFlip lets users swipe through nearby restaurants like a deck of cards, quickly saving favorites into personalized collections for date nights, group dinners, and solo food adventures."
+            tech="JavaScript"
+            link-href="https://cse110-sp25-group25.github.io/cse110-sp25-group25/"
+            link-label="Visit FoodFlip →"
+            date="Spring 2025"
+            role="Frontend engineer, UX design"
+            keywords="restaurant discovery, swipe UI, class project">
+          </project-card>
+
+          <project-card
+            title="Podcaist - AI‑Generated Podcast Platform"
+            image-src="assets/images/podcaist.svg"
+            image-alt="Waveform illustration representing AI-generated audio"
+            description="Podcaist generates fully scripted podcast episodes from a single topic prompt using language models, then stitches narration and background audio into a shareable listening experience."
+            tech="TypeScript, Next.js, OpenAI"
+            link-href="https://podcaist.vercel.app/"
+            link-label="Visit Podcaist →"
+            date="2024"
+            role="Full‑stack developer"
+            keywords="AI, content generation, web app">
+          </project-card>
+
+          <project-card
+            title="QA Testing System - AI‑Driven Testing Agent"
+            image-src="assets/images/github.png"
+            image-alt="Dashboard mockup showing automated test runs"
+            description="An AI agent that explores web apps, writes natural‑language test plans, and executes them automatically, helping developers catch regressions without writing every test case by hand."
+            tech="Python, Playwright, OpenAI"
+            link-href="https://github.com/evanedreo/qa_testing_system"
+            link-label="View QA agent on GitHub →"
+            date="2024"
+            role="Creator"
+            keywords="QA automation, agents, testing">
+          </project-card>
+
+          <project-card
+            title="Slide Generator - AI‑Powered Presentations"
+            image-src="assets/images/github.png"
+            image-alt="Slide deck preview generated from a short topic prompt"
+            description="Given a lesson outline, Slide Generator produces a full, visually‑balanced slide deck with speaker notes, examples, and call‑to‑action sections tailored for educators."
+            tech="TypeScript, Next.js, AWS S3, OpenAI"
+            link-href="https://github.com/evanedreo/slide-generator"
+            link-label="View Slide Generator on GitHub →"
+            date="2023"
+            role="Full‑stack engineer"
+            keywords="education, AI, presentations">
+          </project-card>
+        </div>
       </section>
     </main>
 
