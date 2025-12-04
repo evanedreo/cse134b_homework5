@@ -1,0 +1,210 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Manage Projects - Evan's Portfolio</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Custom font and global stylesheet -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="alternate" href="index.html" title="Home" type="text/html">
+    <link rel="icon" href="assets/images/profile.png" type="image/png">
+    <script src="theme-toggle.js" defer></script>
+    <script src="project-card.js" defer></script>
+    <script src="projects-admin.js" defer></script>
+  </head>
+
+  <body>
+    <noscript>Please enable Javascript to access the best experience</noscript>
+
+    <header>
+      <nav aria-label="Primary">
+        <select class="theme-select" aria-label="Theme" hidden>
+          <option value="light">Light</option>
+          <option value="dark">Dark</option>
+          <option value="ocean">Ocean</option>
+          <option value="forest">Forest</option>
+        </select>
+        <details class="nav-menu">
+          <summary aria-label="Toggle navigation">Menu</summary>
+          <pill-nav>
+            <a href="index.html">Home</a>
+            <a href="experiences.html">Experiences</a>
+            <a href="projects.html">Projects</a>
+            <a href="projects-admin.html" aria-current="page">Projects Admin</a>
+            <a href="form-no-js.html">Contact (No JS)</a>
+            <a href="form-with-js.html">Contact (JS)</a>
+          </pill-nav>
+        </details>
+        <pill-nav class="nav-inline">
+          <a href="index.html">Home</a>
+          <a href="experiences.html">Experiences</a>
+          <a href="projects.html">Projects</a>
+          <a href="projects-admin.html" aria-current="page">Projects Admin</a>
+          <a href="form-no-js.html">Contact (No JS)</a>
+          <a href="form-with-js.html">Contact (JS)</a>
+        </pill-nav>
+      </nav>
+    </header>
+
+    <main>
+      <section id="projects-admin" aria-labelledby="admin-title">
+        <h2 id="admin-title">Manage Projects (Local CRUD)</h2>
+        <p class="project-intro">
+          This page lets you <strong>create</strong>, <strong>update</strong>, and
+          <strong>delete</strong> the localStorage dataset used by the
+          “Load Local” button on the Projects page.
+        </p>
+
+        <div class="admin-layout">
+          <section class="admin-forms" aria-label="Project editor">
+            <h3>Create / Update Project</h3>
+            <p class="admin-help">
+              Fill out the fields below and click
+              <strong>Save Project (Create/Update)</strong>. If the
+              <strong>ID</strong> already exists, that project is updated; otherwise a new
+              project is created.
+            </p>
+            <form id="project-upsert-form">
+              <label for="proj-id">Project ID (required, used as key)</label>
+              <input
+                id="proj-id"
+                name="id"
+                type="text"
+                inputmode="latin"
+                required
+                pattern="[a-z0-9\-]+"
+                title="Use lowercase letters, numbers, and hyphens only (e.g., foodflip, qa-testing-system).">
+
+              <label for="proj-title">Title</label>
+              <input
+                id="proj-title"
+                name="title"
+                type="text"
+                required
+                minlength="3"
+                maxlength="120">
+
+              <label for="proj-description">Description</label>
+              <textarea
+                id="proj-description"
+                name="description"
+                required
+                minlength="10"
+                maxlength="600"></textarea>
+
+              <label for="proj-image-src">Image src</label>
+              <input
+                id="proj-image-src"
+                name="imageSrc"
+                type="text"
+                inputmode="url"
+                placeholder="assets/images/foodflip.png">
+
+              <label for="proj-image-alt">Image alt text</label>
+              <input
+                id="proj-image-alt"
+                name="imageAlt"
+                type="text"
+                maxlength="200">
+
+              <label for="proj-tech">Tech</label>
+              <input
+                id="proj-tech"
+                name="tech"
+                type="text"
+                placeholder="TypeScript, Next.js, OpenAI"
+                maxlength="120">
+
+              <label for="proj-link-href">Link href</label>
+              <input
+                id="proj-link-href"
+                name="linkHref"
+                type="url"
+                required
+                placeholder="https://example.com">
+
+              <label for="proj-link-label">Link label</label>
+              <input
+                id="proj-link-label"
+                name="linkLabel"
+                type="text"
+                placeholder="Visit project →"
+                maxlength="80">
+
+              <label for="proj-date">Date</label>
+              <input
+                id="proj-date"
+                name="date"
+                type="text"
+                placeholder="Spring 2025"
+                maxlength="40">
+
+              <label for="proj-role">Role</label>
+              <input
+                id="proj-role"
+                name="role"
+                type="text"
+                placeholder="Full‑stack engineer"
+                maxlength="80">
+
+              <label for="proj-keywords">Keywords</label>
+              <input
+                id="proj-keywords"
+                name="keywords"
+                type="text"
+                placeholder="AI, web app, portfolio"
+                maxlength="160">
+
+              <button type="submit">Save Project (Create/Update)</button>
+            </form>
+
+            <h3>Delete Project</h3>
+            <p class="admin-help">
+              Enter the <strong>ID</strong> of an existing project and click
+              <strong>Delete Project</strong>.
+            </p>
+            <form id="project-delete-form">
+              <label for="delete-id">Project ID to delete</label>
+              <input
+                id="delete-id"
+                name="id"
+                type="text"
+                inputmode="latin"
+                required
+                pattern="[a-z0-9\-]+"
+                title="Use the exact ID used when creating the project (lowercase letters, numbers, and hyphens).">
+              <button type="submit">Delete Project</button>
+            </form>
+
+            <p id="admin-status" class="project-status" aria-live="polite"></p>
+          </section>
+
+          <section class="admin-preview" aria-label="Preview of local projects">
+            <div class="admin-preview-header">
+              <h3>Preview Local Projects</h3>
+              <button type="button" id="refresh-preview-btn">Refresh Preview</button>
+            </div>
+            <p class="admin-help">
+              This preview reflects what will appear when you click
+              <strong>Load Local</strong> on the Projects page.
+            </p>
+            <div class="project-grid admin-grid" aria-live="polite"></div>
+          </section>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <nav aria-label="Footer">
+        <ul>
+        </ul>
+      </nav>
+      <small>&copy; <span>2025</span> Evan Edreo Honggo Widjojo</small>
+    </footer>
+  </body>
+</html>
+
+
