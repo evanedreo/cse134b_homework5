@@ -94,6 +94,37 @@
     }
   }
 
+  function loadProjectIntoForm(id) {
+    const { upsertForm, status } = getElements();
+    if (!upsertForm || !id) return;
+
+    const projects = readLocalProjects();
+    const project = projects.find(function (p) {
+      return p && p.id === id;
+    });
+
+    if (!project) {
+      setStatus(status, 'No project found with ID "' + id + '" to edit.');
+      return;
+    }
+
+    FIELD_NAMES.forEach(function (field) {
+      const control = upsertForm.elements[field];
+      if (!control) return;
+      const value = project[field] || "";
+      control.value = value;
+    });
+
+    setStatus(
+      status,
+      'Loaded project "' + id + '" into the form. Edit fields and click Save.'
+    );
+
+    if (typeof upsertForm.scrollIntoView === "function") {
+      upsertForm.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
+  }
+
   function handleUpsert(event) {
     event.preventDefault();
     const { upsertForm, status } = getElements();
@@ -172,7 +203,7 @@
   }
 
   function init() {
-    const { upsertForm, deleteForm, refreshBtn } = getElements();
+    const { upsertForm, deleteForm, refreshBtn, previewGrid } = getElements();
     if (!upsertForm || !deleteForm) return;
 
     upsertForm.addEventListener("submit", handleUpsert);
@@ -181,6 +212,20 @@
     if (refreshBtn) {
       refreshBtn.addEventListener("click", function () {
         renderPreview();
+      });
+    }
+
+    // Event delegation: clicking a project card in the preview
+    // loads its data into the form for quick editing.
+    if (previewGrid) {
+      previewGrid.addEventListener("click", function (event) {
+        const target = event.target;
+        if (!(target instanceof Element)) return;
+        const card = target.closest("project-card");
+        if (!card) return;
+        const id = card.getAttribute("project-id");
+        if (!id) return;
+        loadProjectIntoForm(id);
       });
     }
 

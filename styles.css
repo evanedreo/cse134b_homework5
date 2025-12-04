@@ -658,6 +658,85 @@ footer nav a { text-decoration: none; color: var(--text); }
   ol li ul { grid-column: 2; margin: 0.35rem 0 0 0; }
 }
 
+/* Fallback layout/sizing for Experiences when @scope is unsupported */
+body:has(#experiences) #experiences article {
+  border-block-end: 1px solid color-mix(in oklab, var(--text), transparent 85%);
+  padding-block: var(--space-3);
+  display: grid;
+  grid-template-columns: auto 1fr;
+  column-gap: var(--space-2);
+  align-items: center;
+  grid-auto-rows: min-content;
+}
+
+body:has(#experiences) #experiences article .logo {
+  inline-size: 40px;
+  block-size: 40px;
+  object-fit: contain;
+  grid-column: 1;
+}
+
+body:has(#experiences) #experiences article h2 {
+  grid-column: 2;
+  margin: 0;
+  font-size: 1rem;
+}
+
+body:has(#experiences) #experiences article p {
+  grid-column: 2;
+  margin: 0.15rem 0 0 0;
+  font-size: 0.95rem;
+  color: var(--muted);
+}
+
+body:has(#experiences) #experiences article ul {
+  grid-column: 2;
+  margin: 0.35rem 0 0 0;
+}
+
+body:has(#experiences) #experiences ol {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+body:has(#experiences) #experiences ol > li {
+  border-block-end: 1px solid color-mix(in oklab, var(--text), transparent 85%);
+  padding-block: var(--space-3);
+  display: grid;
+  grid-template-columns: auto 1fr;
+  column-gap: var(--space-2);
+  align-items: center;
+  grid-auto-rows: min-content;
+}
+
+body:has(#experiences) #experiences ol li h3 {
+  grid-column: 2;
+  margin: 0;
+  font-size: 1rem;
+  display: flex;
+  align-items: center;
+  gap: var(--space-1);
+}
+
+body:has(#experiences) #experiences ol li h3 .logo {
+  inline-size: 40px;
+  block-size: 40px;
+  object-fit: contain;
+}
+
+body:has(#experiences) #experiences ol li p {
+  grid-column: 2;
+  margin: 0.15rem 0 0 0;
+  font-size: 0.95rem;
+  color: var(--muted);
+}
+
+body:has(#experiences) #experiences ol li ul {
+  grid-column: 2;
+  margin: 0.35rem 0 0 0;
+}
+
 /* Experiments page generic section framing (moved from inline styles) */
 body:has(#contact), body:has(#projects), body:has(#experiences), body:has(#about) {}
 main section {

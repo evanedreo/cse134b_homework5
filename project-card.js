@@ -14,6 +14,7 @@
         --card-gap: var(--project-card-gap, var(--space-3));
 
         display: block;
+        cursor: default;
       }
 
       article {
@@ -27,6 +28,7 @@
         border-radius: var(--card-radius);
         border: 1px solid var(--card-border);
         box-shadow: var(--shadow-soft);
+        transition: transform 160ms ease, box-shadow 160ms ease;
       }
 
       picture {
@@ -96,6 +98,12 @@
         background: color-mix(in oklab, var(--accent), transparent 70%);
         transform: translateY(-1px);
         box-shadow: var(--shadow-soft);
+      }
+
+      :host(:hover) article,
+      :host(:focus-within) article {
+        transform: translateY(-2px);
+        box-shadow: 0 10px 24px rgb(15 23 42 / 0.12);
       }
 
       @media (max-width: 48rem) {
