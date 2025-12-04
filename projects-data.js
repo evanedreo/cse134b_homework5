@@ -107,6 +107,7 @@
 
     list.forEach(function (proj) {
       const card = document.createElement("project-card");
+      if (proj.id) card.setAttribute("project-id", proj.id);
       if (proj.title) card.setAttribute("title", proj.title);
       if (proj.imageSrc) card.setAttribute("image-src", proj.imageSrc);
       if (proj.imageAlt) card.setAttribute("image-alt", proj.imageAlt);

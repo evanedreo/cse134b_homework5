@@ -192,6 +192,18 @@
         return;
       }
 
+      // Also avoid intercepting navigation to pages that rely on per-page
+      // scripts (Projects + Projects Admin). These need a full reload so
+      // their JS (projects-data.js / projects-admin.js) can run.
+      if (
+        url.pathname.endsWith("/projects.html") ||
+        url.pathname.endsWith("projects.html") ||
+        url.pathname.endsWith("/projects-admin.html") ||
+        url.pathname.endsWith("projects-admin.html")
+      ) {
+        return;
+      }
+
       // Skip if already on this page
       if (url.pathname === window.location.pathname && url.search === window.location.search) {
         return;

@@ -60,6 +60,7 @@
 
     projects.forEach(function (proj) {
       const card = document.createElement("project-card");
+      if (proj.id) card.setAttribute("project-id", proj.id);
       if (proj.title) card.setAttribute("title", proj.title);
       if (proj.imageSrc) card.setAttribute("image-src", proj.imageSrc);
       if (proj.imageAlt) card.setAttribute("image-alt", proj.imageAlt);
@@ -128,20 +129,12 @@
 
     if (existingIndex >= 0) {
       projects[existingIndex] = updated;
-      setStatus(
-        status,
-        "Updated project with ID \"" +
-          id +
-          "\". Reload \"Load Local\" on the Projects page to see the change."
-      );
+      const msg = "Updated project \"" + id + "\".";
+      setStatus(status, msg);
     } else {
       projects.push(updated);
-      setStatus(
-        status,
-        "Created new project with ID \"" +
-          id +
-          "\". Reload \"Load Local\" on the Projects page to see it."
-      );
+      const msg = "Created new project \"" + id + "\".";
+      setStatus(status, msg);
     }
 
     writeLocalProjects(projects);
@@ -167,14 +160,11 @@
     });
 
     if (projects.length === beforeCount) {
-      setStatus(status, 'No project found with ID "' + id + '".');
+      const msg = "No project found with ID \"" + id + "\".";
+      setStatus(status, msg);
     } else {
-      setStatus(
-        status,
-        'Deleted project with ID "' +
-          id +
-          '". Reload "Load Local" on the Projects page to apply it.'
-      );
+      const msg = "Deleted project \"" + id + "\".";
+      setStatus(status, msg);
     }
 
     writeLocalProjects(projects);
@@ -203,5 +193,3 @@
     init();
   }
 })();
-
-

@@ -56,6 +56,12 @@
         font-size: 1.05rem;
       }
 
+      .id {
+        margin: 0;
+        font-size: 0.85rem;
+        color: var(--muted);
+      }
+
       .meta {
         font-size: 0.9rem;
         color: var(--muted);
@@ -115,6 +121,7 @@
       </picture>
       <div class="body">
         <h2></h2>
+        <p class="id"></p>
         <p class="meta"></p>
         <p class="description"></p>
         <p class="tech"></p>
@@ -127,6 +134,7 @@
     static get observedAttributes() {
       return [
         "title",
+        "project-id",
         "image-src",
         "image-alt",
         "description",
@@ -146,6 +154,7 @@
       this._elements = {
         img: this.shadowRoot.querySelector("img"),
         title: this.shadowRoot.querySelector("h2"),
+        id: this.shadowRoot.querySelector(".id"),
         meta: this.shadowRoot.querySelector(".meta"),
         desc: this.shadowRoot.querySelector(".description"),
         tech: this.shadowRoot.querySelector(".tech"),
@@ -164,9 +173,10 @@
     }
 
     _render() {
-      const { img, title, meta, desc, tech, link } = this._elements;
+      const { img, title, id, meta, desc, tech, link } = this._elements;
 
       const titleText = this.getAttribute("title") ?? "";
+      const projectId = this.getAttribute("project-id") ?? "";
       const imageSrc = this.getAttribute("image-src") ?? "";
       const imageAlt = this.getAttribute("image-alt") ?? titleText;
       const description = this.getAttribute("description") ?? "";
@@ -184,6 +194,11 @@
 
       if (title) {
         title.textContent = titleText;
+      }
+
+      if (id) {
+        id.textContent = projectId ? "project-id: " + projectId : "";
+        id.hidden = !projectId;
       }
 
       if (meta) {
