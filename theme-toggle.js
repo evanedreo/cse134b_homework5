@@ -140,6 +140,14 @@
       const nextDoc = parser.parseFromString(html, "text/html");
       const nextMain = nextDoc.querySelector("main");
       const nextTitle = nextDoc.querySelector("title");
+      const nextScripts = Array.from(
+        nextDoc.querySelectorAll('script[src]')
+      ).filter((script) => {
+        const src = script.getAttribute("src") || "";
+        // Avoid re-loading the theme toggle script itself; everything else
+        // (per-page logic) should run when we navigate.
+        return !src.endsWith("theme-toggle.js");
+      });
 
       if (!nextMain) {
         window.location.href = url;
@@ -156,6 +164,20 @@
         }
         history.pushState({}, "", url);
         updateActiveNav(new URL(url, window.location.href).pathname);
+
+        // Re-run any per-page scripts that the destination page declares.
+        // This ensures pages like Projects, Projects Admin, and Quiz still
+        // attach their event listeners when navigated via the SPA-style
+        // transition.
+        nextScripts.forEach((scriptEl) => {
+          const src = scriptEl.getAttribute("src");
+          if (!src) return;
+          const s = document.createElement("script");
+          s.src = src;
+          // Allow scripts to execute as soon as they load.
+          s.defer = false;
+          document.head.appendChild(s);
+        });
       });
     } catch {
       window.location.href = url;
@@ -189,20 +211,6 @@
       // Never intercept navigation to the pure no-JS form page — let the browser
       // load it as a full, script-free document to satisfy the assignment.
       if (url.pathname.endsWith("/form-no-js.html") || url.pathname.endsWith("form-no-js.html")) {
-        return;
-      }
-
-      // Also avoid intercepting navigation to pages that rely on per-page
-      // scripts (Projects + Projects Admin). These need a full reload so
-      // their JS (projects-data.js / projects-admin.js) can run.
-      if (
-        url.pathname.endsWith("/projects.html") ||
-        url.pathname.endsWith("projects.html") ||
-        url.pathname.endsWith("/projects-admin.html") ||
-        url.pathname.endsWith("projects-admin.html") ||
-        url.pathname.endsWith("/quiz.html") ||
-        url.pathname.endsWith("quiz.html")
-      ) {
         return;
       }
 
