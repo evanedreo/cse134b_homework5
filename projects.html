@@ -13,6 +13,7 @@
     <link rel="icon" href="assets/images/profile.png" type="image/png">
     <script src="theme-toggle.js" defer></script>
     <script src="project-card.js" defer></script>
+    <script src="projects-data.js" defer></script>
   </head>
 
   <body>
@@ -50,59 +51,16 @@
       <!-- Projects -->
       <section id="projects" aria-labelledby="proj-title">
         <h2 id="proj-title">Projects</h2>
-        <div class="project-grid" aria-live="polite">
-          <project-card
-            title="FoodFlip - Restaurant Recommendation App"
-            image-src="assets/images/foodflip.png"
-            image-alt="FoodFlip app interface showing restaurant cards to swipe"
-            description="FoodFlip lets users swipe through nearby restaurants like a deck of cards, quickly saving favorites into personalized collections for date nights, group dinners, and solo food adventures."
-            tech="JavaScript"
-            link-href="https://cse110-sp25-group25.github.io/cse110-sp25-group25/"
-            link-label="Visit FoodFlip →"
-            date="Spring 2025"
-            role="Frontend engineer, UX design"
-            keywords="restaurant discovery, swipe UI, class project">
-          </project-card>
-
-          <project-card
-            title="Podcaist - AI‑Generated Podcast Platform"
-            image-src="assets/images/podcaist.svg"
-            image-alt="Waveform illustration representing AI-generated audio"
-            description="Podcaist generates fully scripted podcast episodes from a single topic prompt using language models, then stitches narration and background audio into a shareable listening experience."
-            tech="TypeScript, Next.js, OpenAI"
-            link-href="https://podcaist.vercel.app/"
-            link-label="Visit Podcaist →"
-            date="2024"
-            role="Full‑stack developer"
-            keywords="AI, content generation, web app">
-          </project-card>
-
-          <project-card
-            title="QA Testing System - AI‑Driven Testing Agent"
-            image-src="assets/images/github.png"
-            image-alt="Dashboard mockup showing automated test runs"
-            description="An AI agent that explores web apps, writes natural‑language test plans, and executes them automatically, helping developers catch regressions without writing every test case by hand."
-            tech="Python, Playwright, OpenAI"
-            link-href="https://github.com/evanedreo/qa_testing_system"
-            link-label="View QA agent on GitHub →"
-            date="2024"
-            role="Creator"
-            keywords="QA automation, agents, testing">
-          </project-card>
-
-          <project-card
-            title="Slide Generator - AI‑Powered Presentations"
-            image-src="assets/images/github.png"
-            image-alt="Slide deck preview generated from a short topic prompt"
-            description="Given a lesson outline, Slide Generator produces a full, visually‑balanced slide deck with speaker notes, examples, and call‑to‑action sections tailored for educators."
-            tech="TypeScript, Next.js, AWS S3, OpenAI"
-            link-href="https://github.com/evanedreo/slide-generator"
-            link-label="View Slide Generator on GitHub →"
-            date="2023"
-            role="Full‑stack engineer"
-            keywords="education, AI, presentations">
-          </project-card>
+        <p class="project-intro">
+          Use the buttons below to populate the cards with data from
+          <strong>localStorage</strong> or from a <strong>remote JSON API</strong>.
+        </p>
+        <div class="project-actions" aria-label="Project data sources">
+          <button type="button" id="load-local-btn">Load Local</button>
+          <button type="button" id="load-remote-btn">Load Remote</button>
         </div>
+        <p id="projects-status" class="project-status" aria-live="polite"></p>
+        <div class="project-grid" aria-live="polite"></div>
       </section>
     </main>
 
