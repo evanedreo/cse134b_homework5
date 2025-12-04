@@ -199,7 +199,9 @@
         url.pathname.endsWith("/projects.html") ||
         url.pathname.endsWith("projects.html") ||
         url.pathname.endsWith("/projects-admin.html") ||
-        url.pathname.endsWith("projects-admin.html")
+        url.pathname.endsWith("projects-admin.html") ||
+        url.pathname.endsWith("/quiz.html") ||
+        url.pathname.endsWith("quiz.html")
       ) {
         return;
       }

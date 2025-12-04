@@ -1,0 +1,175 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Quiz - Evan's Portfolio</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Custom font and global stylesheet -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="alternate" href="index.html" title="Home" type="text/html">
+    <link rel="icon" href="assets/images/profile.png" type="image/png">
+    <script src="theme-toggle.js" defer></script>
+    <script src="quiz.js" defer></script>
+  </head>
+
+  <body>
+    <noscript>Please enable Javascript to access the best experience</noscript>
+
+    <header>
+      <nav aria-label="Primary">
+        <select class="theme-select" aria-label="Theme" hidden>
+          <option value="light">Light</option>
+          <option value="dark">Dark</option>
+          <option value="ocean">Ocean</option>
+          <option value="forest">Forest</option>
+        </select>
+        <details class="nav-menu">
+          <summary aria-label="Toggle navigation">Menu</summary>
+          <pill-nav>
+            <a href="index.html">Home</a>
+            <a href="experiences.html">Experiences</a>
+            <a href="projects.html">Projects</a>
+            <a href="projects-admin.html">Projects Admin</a>
+            <a href="form.html">Contact</a>
+            <a href="quiz.html" aria-current="page">Quiz</a>
+          </pill-nav>
+        </details>
+        <pill-nav class="nav-inline">
+          <a href="index.html">Home</a>
+          <a href="experiences.html">Experiences</a>
+          <a href="projects.html">Projects</a>
+          <a href="projects-admin.html">Projects Admin</a>
+          <a href="form.html">Contact</a>
+          <a href="quiz.html" aria-current="page">Quiz</a>
+        </pill-nav>
+      </nav>
+    </header>
+
+    <main>
+      <section id="quiz" aria-labelledby="quiz-title">
+        <h2 id="quiz-title">Portfolio Pop Quiz</h2>
+        <p class="quiz-intro">
+          Test how well you know my background and interests. Answer the questions below, then
+          check your score to see how you did.
+        </p>
+
+        <ol class="quiz-list">
+          <li class="quiz-question" data-answer="b">
+            <fieldset>
+              <legend>1. What is my current degree program?</legend>
+              <label>
+                <input type="radio" name="q1" value="a">
+                BA in Cognitive Science
+              </label>
+              <label>
+                <input type="radio" name="q1" value="b">
+                BS in Computer Science
+              </label>
+              <label>
+                <input type="radio" name="q1" value="c">
+                MS in Data Science
+              </label>
+            </fieldset>
+            <p class="quiz-feedback" aria-live="polite"></p>
+          </li>
+
+          <li class="quiz-question" data-answer="c">
+            <fieldset>
+              <legend>2. Which area do I especially enjoy working in?</legend>
+              <label>
+                <input type="radio" name="q2" value="a">
+                Low-level embedded systems only
+              </label>
+              <label>
+                <input type="radio" name="q2" value="b">
+                Graphic design with no coding
+              </label>
+              <label>
+                <input type="radio" name="q2" value="c">
+                Full-stack development and AI/ML systems
+              </label>
+            </fieldset>
+            <p class="quiz-feedback" aria-live="polite"></p>
+          </li>
+
+          <li class="quiz-question" data-answer="a">
+            <fieldset>
+              <legend>3. Where am I currently based?</legend>
+              <label>
+                <input type="radio" name="q3" value="a">
+                San Diego, California
+              </label>
+              <label>
+                <input type="radio" name="q3" value="b">
+                New York City, New York
+              </label>
+              <label>
+                <input type="radio" name="q3" value="c">
+                Austin, Texas
+              </label>
+            </fieldset>
+            <p class="quiz-feedback" aria-live="polite"></p>
+          </li>
+
+          <li class="quiz-question" data-answer="c">
+            <fieldset>
+              <legend>4. Which technology stack have I used on one of my projects?</legend>
+              <label>
+                <input type="radio" name="q4" value="a">
+                COBOL and punch cards
+              </label>
+              <label>
+                <input type="radio" name="q4" value="b">
+                Only spreadsheet formulas
+              </label>
+              <label>
+                <input type="radio" name="q4" value="c">
+                TypeScript, Next.js, and OpenAI APIs
+              </label>
+            </fieldset>
+            <p class="quiz-feedback" aria-live="polite"></p>
+          </li>
+
+          <li class="quiz-question" data-answer="b">
+            <fieldset>
+              <legend>5. What kind of problems do I like to solve?</legend>
+              <label>
+                <input type="radio" name="q5" value="a">
+                Only theoretical problems with no users
+              </label>
+              <label>
+                <input type="radio" name="q5" value="b">
+                Real-world challenges that benefit from scalable, user-focused software
+              </label>
+              <label>
+                <input type="radio" name="q5" value="c">
+                Anything that avoids working with other people
+              </label>
+            </fieldset>
+            <p class="quiz-feedback" aria-live="polite"></p>
+          </li>
+        </ol>
+
+        <div class="quiz-actions">
+          <button type="button" id="check-answers">Check answers</button>
+          <button type="button" id="reset-quiz">Reset quiz</button>
+        </div>
+
+        <p id="quiz-score" class="quiz-score" aria-live="polite"></p>
+      </section>
+    </main>
+
+    <footer>
+      <nav aria-label="Footer">
+        <ul>
+        </ul>
+      </nav>
+      <small>&copy; <span>2025</span> Evan Edreo Honggo Widjojo</small>
+    </footer>
+  </body>
+</html>
+
+
