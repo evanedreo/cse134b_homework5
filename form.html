@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <title>Contact Form (With JS) - Evan's Portfolio</title>
+    <title>Contact - Evan's Portfolio</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- Custom font and global stylesheet -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -32,8 +32,7 @@
             <a href="experiences.html">Experiences</a>
             <a href="projects.html">Projects</a>
             <a href="projects-admin.html">Projects Admin</a>
-            <a href="form-no-js.html">Contact (No JS)</a>
-            <a href="form-with-js.html" aria-current="page">Contact (JS)</a>
+            <a href="form.html" aria-current="page">Contact</a>
           </pill-nav>
         </details>
         <pill-nav class="nav-inline">
@@ -41,8 +40,7 @@
           <a href="experiences.html">Experiences</a>
           <a href="projects.html">Projects</a>
           <a href="projects-admin.html">Projects Admin</a>
-          <a href="form-no-js.html">Contact (No JS)</a>
-          <a href="form-with-js.html" aria-current="page">Contact (JS)</a>
+          <a href="form.html" aria-current="page">Contact</a>
         </pill-nav>
       </nav>
     </header>
@@ -54,7 +52,7 @@
 
         <form action="https://httpbin.org/post" method="post" novalidate>
           <fieldset>
-            <legend>Contact Form (No JavaScript)</legend>
+            <legend>Contact Form</legend>
 
             <label for="name">
               Name <span aria-hidden="true">*</span>
@@ -72,7 +70,7 @@
             <label for="comments">
               Comments <span aria-hidden="true">*</span>
             </label>
-            <textarea id="comments" name="comments" rows="5" required minlength="5" maxlength="500">This is a test!</textarea>
+            <textarea id="comments" name="comments" rows="5" required minlength="5" maxlength="500"></textarea>
 
             <p id="comments-counter" class="helper-text" aria-live="polite"></p>
 
